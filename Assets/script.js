@@ -7,7 +7,7 @@ var currentQuestion = 0;
 var bamTime = 30;
 var questions = [
     {
-        // Change answers -> Venom / Captain America / Deadpool / (Jack)
+        // Change answers -> Venom / Captain America / Deadpool / Black Widow
         // Move questions to another .js file -> cleans up script.js
     title: "Which is best?",
     answers: [
