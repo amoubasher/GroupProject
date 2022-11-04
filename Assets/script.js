@@ -7,6 +7,8 @@ var currentQuestion = 0;
 var bamTime = 30;
 var questions = [
     {
+        // Change answers -> Venom / Captain America / Deadpool / (Jack)
+        // Move questions to another .js file -> cleans up script.js
     title: "Which is best?",
     answers: [
             { answer: 1, correct: false },
@@ -32,6 +34,7 @@ var questions = [
         }
 ]
 
+// Change counter to look like the marvel logo so that it persists across all pages/questions
 function curTime(){
     document.getElementById('counter').innerHTML= bamTime;
     bamTime--;
@@ -44,6 +47,7 @@ function curTime(){
     }
 }
 
+// Fix styling with JQuery 
 function questionPage(question) {
 
     curTime()
@@ -113,20 +117,8 @@ function questionPage(question) {
     )
 }
 
-function highScorePage() {
-    // Creating a high score page to live outside of game/quiz where you can see the list before starting game/quiz
-    quiz.innerHTML = /*html*/ `
-    <p>
-    High Scores
-    </p>
-    <ul id="myList">
-    <li class="clickers" id="rank1">" ${AKA} Score: right ${totalCorrect} and wrong ${totalWrong}"</li>
-    </ul>
-    `
-
-    //want to set to image for fun at some point
-    document.getElementById("myList").style.listStyle = "square inside";
-}
+// Change gameOver page to fit styling 
+// Change to also match the four different characters
 
 function gameOver() {
     quiz.innerHTML = /*html*/ `
@@ -157,6 +149,7 @@ $(document).ready(function(){
 })
 }
 
+// Style the homepage w/JQuery, red / black theme -> Put logo in obvious spot (middle)
 function homepage() {
     quiz.innerHTML = /*html*/ `
     <p>
