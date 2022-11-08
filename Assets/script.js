@@ -42,13 +42,14 @@ function questionPage(question) {
     <p>
     ${question.title}
     </p>
-    <ul>
-    <li><button class="clickers" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
-    <li><button class="clickers" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
-    <li><button class="clickers" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
-    <li><button class="clickers" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
-
-    </ul>
+        <ul>
+            <div class="btn-group-vertical">
+                <li><button type="button" class="clickers btn btn-dark" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
+                <li><button type="button" class="clickers btn btn-dark" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
+                <li><button type="button" class="clickers btn btn-dark" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
+                <li><button type="button" class="clickers btn btn-dark" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
+            </div>
+        </ul>
     `
     // document
     // .getElementById("answerOne, answerTwo, answerThree")
@@ -111,7 +112,7 @@ function homepage() {
     <p>
     My Quiz
     </p>
-    <button id="startQuiz">Start Quiz</button>
+    <button type="button" class="btn btn-dark" id="startQuiz">Start Quiz</button>
     `
 
     document
