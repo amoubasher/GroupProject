@@ -7,7 +7,6 @@ var questions = [
         // Change answers -> Venom / Captain America / Deadpool / Black Widow
         // Move questions to another .js file -> cleans up script.js
         // 5Q! 4A =20 0-4 CAP 5-9 Deadpool 10-14 Black Widow 15-19 Venom
-        // questions should start easy and get harder
     title: "What is your greatest Strength?",
     answers: [
             { answer: 'Justice', correct: 0 },
