@@ -4,32 +4,37 @@ var totalWrong =0;
 var AKA='killer'
 var highScore=[]//array to build multi high score list
 var currentQuestion = 0;
+
 var bamTime = 30;
 var questions = [
     {
         // Change answers -> Venom / Captain America / Deadpool / Black Widow
         // Move questions to another .js file -> cleans up script.js
-    title: "Which is best?",
+        // 5Q! 4A =20 0-4 CAP 5-9 Deadpool 10-14 Black Widow 15-19 Venom
+    title: "What is your greatest Strength?",
     answers: [
-            { answer: 1, correct: false },
-            { answer: 2, correct: false },
-            { answer: 3, correct: true },
+            { answer: 'Justice', correct: 0 },
+            { answer: 'Everthing DUH!', correct: 1 },
+            { answer: 'Shadows', correct: 2 },
+            { answer: 'We are Venom!', correct: 3 }
         ]
     },
     {
     title: "Which is better?",
     answers: [
-            { answer: 4, correct: false },
-            { answer: 5, correct: true },
-            { answer: 6, correct: false },
+        { answer: 'Justice', correct: 0 },
+        { answer: 'Everthing DUH!', correct: 1 },
+        { answer: 'Shadows', correct: 2 },
+        { answer: 'We are Venom!', correct: 3 }
         ]
     },
     {
     title: "Which is better?",
         answers: [
-            { answer: 'js', correct: true },
-            { answer: 'Python', correct: false },
-            { answer: 'GoLang', correct: false },
+            { answer: 'Justice', correct: 0 },
+            { answer: 'Everthing DUH!', correct: 1 },
+            { answer: 'Shadows', correct: 2 },
+            { answer: 'We are Venom!', correct: 3 }
             ]
         }
 ]
@@ -85,6 +90,9 @@ function questionPage(question) {
             var spitting = $(this).data('correct')
 
 
+            if (spitting=== 'CAP'){
+                CAP++
+            }
 
             if (spitting === true && bamTime !== 0){
                 totalCorrect++;
