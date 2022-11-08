@@ -1,11 +1,7 @@
 var quiz = document.getElementById("quiz");
-var totalCorrect = 0;
-var totalWrong =0;
-var AKA='killer'
-var highScore=[]//array to build multi high score list
+var charTotal = 0;
 var currentQuestion = 0;
 
-var bamTime = 30;
 var questions = [
     {
         // Change answers -> Venom / Captain America / Deadpool / Black Widow
@@ -29,7 +25,7 @@ var questions = [
         ]
     },
     {
-    title: "Which is better?",
+    title: "best best best?",
         answers: [
             { answer: 'Justice', correct: 0 },
             { answer: 'Everthing DUH!', correct: 1 },
@@ -39,23 +35,8 @@ var questions = [
         }
 ]
 
-// Change counter to look like the marvel logo so that it persists across all pages/questions
-function curTime(){
-    document.getElementById('counter').innerHTML= bamTime;
-    bamTime--;
-    if (bamTime<0){
-        alert('You Lose');
-        gameOver();
-    }
-    else{
-        setTimeout(bamTime, 1000)
-    }
-}
-
 // Fix styling with JQuery 
 function questionPage(question) {
-
-    curTime()
 
     quiz.innerHTML = /*html*/`
     <p>
@@ -65,6 +46,8 @@ function questionPage(question) {
     <li><button class="clickers" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
     <li><button class="clickers" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
     <li><button class="clickers" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
+    <li><button class="clickers" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
+
     </ul>
     `
     // document
@@ -88,50 +71,30 @@ function questionPage(question) {
         'click', 
         function() {
             var spitting = $(this).data('correct')
-
-
-            if (spitting=== 'CAP'){
-                CAP++
-            }
-
-            if (spitting === true && bamTime !== 0){
-                totalCorrect++;
-                // used to check if working
-                // console.log(totalCorrect)
-                // console.log(spitting)
-                currentQuestion++;
-                if (currentQuestion == 3 || bamTime == 0)
-                {
-                    gameOver() 
-                }
-                else{
-                    questionPage(questions[currentQuestion])
-                }
-            }
-            if(spitting === false && bamTime !== 0){
-                totalWrong++;
+            console.log(spitting);
+            charTotal= charTotal + spitting;
+            currentQuestion++;
+            if(spitting <= 2){
                 questionPage(questions[currentQuestion])
-                // used to check if working
-                // console.log(spitting)
-                // console.log(totalWrong)
             }
-            // if (currentQuestion < 2){ 
-            //     currentQuestion++;
-            //     questionPage(questions[currentQuestion]);
-            // }
+            if(spitting === 3){
+                charResults()
+            }
         }
     )
     )
     )
 }
 
-// Change gameOver page to fit styling 
+// Change character results page to fit styling 
 // Change to also match the four different characters
 
-function gameOver() {
+function charResults() {
+
+    //LANDING PAGE DISPLAY RESULTS
     quiz.innerHTML = /*html*/ `
     <p>
-    Game Over
+        RESULTS
     </p>
     <body>
     <input type="text" id="myInput">
@@ -140,21 +103,6 @@ function gameOver() {
     </body>
 
     `
-
-$(document).ready(function(){
-    // Get value on button click and show alert
-    $("#myBtn").click(function(){
-        var str = $("#myInput").val();
-        localStorage.setItem('initals', str);
-        alert("Cool Name Bro");
-        AKA = str
-        highScorePage()
-    });
-
-    //used for checking values
-    //console.log(AKA)
-
-})
 }
 
 // Style the homepage w/JQuery, red / black theme -> Put logo in obvious spot (middle)
