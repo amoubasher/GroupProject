@@ -2,28 +2,3 @@
     background-image: url(./Images/marvelBackground.png);
     height: 100%;
 }
-
-p {
-    font-weight: bolder;
-    font-size: 100px;
-}
-
-li {
-    font-size: 28px;
-    list-style: none;
-}
-
-button {
-    font-size: 24px;
-}
-
-.cartoon {
-    width: 400px;
-    height: auto;
-}
-
-.supercard {
-    border: 5px;
-    border-style: solid;
-    margin: 10px;
-}
