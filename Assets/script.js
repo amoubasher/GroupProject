@@ -130,26 +130,26 @@ function charResult(charTotal) {
     </p>
     <body>
         <div class="card" style="width:400px">
-            <img class="card-img-top" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-            <div>
+            <div class="supercard" id="blackwidow">
+                <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
                 <h4 class="card-title">Black Widow</h4>
                 <p class="card-text"> MORE INFO </p>
-                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+                <a href="https://www.marvel.com/comics/characters/1009189/black_widow?utm_campaign=apiRef&utm_source=908be84bdd5d62e47e3efabe9d44b7f5" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-            <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
-            <div>
+            <div class="supercard" id="venom">
+                <img class="card-img-top cartoon"" src="./Assets/Images/venom.jpg" alt="Venom">
                 <h4 class="card-title">Venom</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-            <img class="card-img-top" src="./Assets/Images/Deadpool.png" alt="Deadpool">
-            <div>
+            <div class="supercard" id="deadpool">
+                <img class="card-img-top cartoon" src="./Assets/Images/Deadpool.png" alt="Deadpool">
                 <h4 class="card-title">Deadpool</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
-            <div>
+            <div class="supercard" id="captain">
+                <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
                 <h4 class="card-title">Captain America</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
