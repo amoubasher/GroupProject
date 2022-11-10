@@ -49,7 +49,7 @@ function questionPage(question) {
     ${question.title}
     </p>
         <ul>
-            <div class="d-grid gap-2 d-md-block">
+            <div class="btn-group-vertical">
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
@@ -129,6 +129,7 @@ function charResult(charTotal) {
         RESULTS
     </p>
     <body>
+<<<<<<< HEAD
         <div class="card" style="width:400px">
             <div class="supercard" id="blackwidow">
                 <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
@@ -155,6 +156,11 @@ function charResult(charTotal) {
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div> -->
         </div>
+=======
+    <input type="text" id="myInput">
+    <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
+
+>>>>>>> 622521a (Added more styling)
     </body>
 
     `
