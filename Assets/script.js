@@ -49,7 +49,7 @@ function questionPage(question) {
     ${question.title}
     </p>
         <ul>
-            <div class="btn-group-vertical">
+            <div class="d-grid gap-2 d-md-block">
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
@@ -130,30 +130,30 @@ function charResult(charTotal) {
     </p>
     <body>
         <div class="card" style="width:400px">
-            <div class="supercard" id="blackwidow">
-                <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-                <h4 class="card-title">${charResults[0].name}</h4>
+            <img class="card-img-top" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
+            <div>
+                <h4 class="card-title">Black Widow</h4>
                 <p class="card-text"> MORE INFO </p>
-                <a href="${path}.${ext}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-            <div class="supercard" id="venom">
-                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
+            <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
+            <div>
                 <h4 class="card-title">Venom</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-            <div class="supercard" id="deadpool">
-                <img class="card-img-top cartoon" src="./Assets/Images/Deadpool.png" alt="Deadpool">
+            <img class="card-img-top" src="./Assets/Images/Deadpool.png" alt="Deadpool">
+            <div>
                 <h4 class="card-title">Deadpool</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-            <div class="supercard" id="captain">
-                <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
+            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
+            <div>
                 <h4 class="card-title">Captain America</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div> -->
+            </div>
         </div>
     </body>
 
