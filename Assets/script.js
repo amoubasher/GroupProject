@@ -91,6 +91,15 @@ function questionPage(question) {
 // Change to also match the four different characters
 
 function charResults() {
+    var choosenChar;
+
+    if (charResults <=4 ){
+         choosenChar= capID;
+    }
+    if (charResults > 4 && charResults <= 9 ){
+        choosenChar= deadID;
+
+    }
 
     //LANDING PAGE DISPLAY RESULTS
     quiz.innerHTML = /*html*/ `
