@@ -49,7 +49,7 @@ function questionPage(question) {
     ${question.title}
     </p>
         <ul>
-            <div class="d-grid gap-2 d-md-block">
+            <div class="btn-group-vertical">
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
                 <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
@@ -129,6 +129,7 @@ function charResult(charTotal) {
         RESULTS
     </p>
     <body>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <div class="card" style="width:400px">
@@ -211,6 +212,11 @@ function charResult(charTotal) {
 >>>>>>> a255c01 (did JS changes)
         </div>
 >>>>>>> 9990524 (Worked on backgrounds, buttons, cards, styling)
+=======
+    <input type="text" id="myInput">
+    <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
+
+>>>>>>> 9efcbce (Added more styling)
     </body>
 
     `
