@@ -1,6 +1,6 @@
 .background {
     background-image: url(./Images/marvelBackground.png);
-    height: 100%;
+    background-size: auto;
 }
 
 p {
@@ -15,4 +15,15 @@ li {
 
 button {
     font-size: 24px;
+}
+
+.cartoon {
+    width: auto;
+    height: 500px;
+}
+
+.supercard {
+    border: 5px;
+    border-style: solid;
+    margin: 10px;
 }
