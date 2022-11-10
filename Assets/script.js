@@ -44,10 +44,10 @@ function questionPage(question) {
     </p>
         <ul>
             <div class="btn-group-vertical">
-                <li><button type="button" class="clickers btn btn-dark" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
+                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
+                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
+                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
+                <li><button type="button" class="clickers btn btn-dark btn-lg" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
             </div>
         </ul>
     `
@@ -108,7 +108,7 @@ function charResults() {
     </p>
     <body>
     <input type="text" id="myInput">
-    <button type="button" id="myBtn"> Show Value</button>
+    <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
 
     </body>
 
@@ -121,7 +121,7 @@ function homepage() {
     <p>
     My Quiz
     </p>
-    <button type="button" class="btn btn-dark" id="startQuiz">Start Quiz</button>
+    <button type="button" class="btn btn-dark btn-lg" id="startQuiz">Start Quiz</button>
     `
 
     document
