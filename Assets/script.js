@@ -134,12 +134,13 @@ function charResult(charTotal) {
 <<<<<<< HEAD
 <<<<<<< HEAD
         <div class="card" style="width:400px">
-            <div class="supercard" id="blackwidow">
-                <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-                <h4 class="card-title">${charResults[0].name}</h4>
+            <img class="card-img-top" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
+            <div>
+                <h4 class="card-title">Black Widow</h4>
                 <p class="card-text"> MORE INFO </p>
-                <a href="${path}.${ext}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
+<<<<<<< HEAD
             <div class="supercard" id="venom">
                 <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
 =======
@@ -184,10 +185,15 @@ function charResult(charTotal) {
 <!--           <div class="supercard" id="venom">
                 <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
 >>>>>>> 385523a (did JS changes)
+=======
+            <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
+            <div>
+>>>>>>> 83cf28a (Worked on backgrounds, buttons, cards, styling)
                 <h4 class="card-title">Venom</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -210,10 +216,15 @@ function charResult(charTotal) {
             <div class="supercard" id="deadpool">
                 <img class="card-img-top cartoon" src="./Assets/Images/Deadpool.png" alt="Deadpool">
 >>>>>>> af31d29 (Fixed some styling issues, worked on cards)
+=======
+            <img class="card-img-top" src="./Assets/Images/Deadpool.png" alt="Deadpool">
+            <div>
+>>>>>>> 83cf28a (Worked on backgrounds, buttons, cards, styling)
                 <h4 class="card-title">Deadpool</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -228,6 +239,14 @@ function charResult(charTotal) {
 <<<<<<< HEAD
 =======
 >>>>>>> 385523a (did JS changes)
+=======
+            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
+            <div>
+                <h4 class="card-title">Captain America</h4>
+                <p class="card-text"> MORE INFO </p>
+                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+            </div>
+>>>>>>> 83cf28a (Worked on backgrounds, buttons, cards, styling)
         </div>
 =======
     <input type="text" id="myInput">
