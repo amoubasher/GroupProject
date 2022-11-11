@@ -99,15 +99,31 @@ function questionPage(question) {
 function charResult(charTotal) {
   var choosenChar;
 
-  if (charTotal <= 4) {
-    choosenChar = cap_ID;
-  }
-  if (charTotal > 4 && charTotal <= 9) {
-    choosenChar = Dp_ID;
-  }
+    
+    if (charResults <=4 ){
+        choosenChar= capID;
+    }
+    if (charResults > 4 && charResults <= 9 ){
+        choosenChar= deadID;
+        
+    }
+    
+    // API call to get chosen character
+    // Syntax to use information from API
 
-  //LANDING PAGE DISPLAY RESULTS
-  quiz.innerHTML = /*html*/ `
+    // charResults[0].name
+    // charResults[0].thumbnail.path
+    // charResults[0].comics.available
+    // charResults[0].series.available
+    // charResults[0].stories.available
+    // charResults[0].events.available
+
+    var path = "http://i.annihil.us/u/prod/marvel/i/mg/e/03/5317713c9e746"
+    var ext = "jpg"
+
+
+    //LANDING PAGE DISPLAY RESULTS
+    quiz.innerHTML = /*html*/ `
     <p>
         RESULTS
     </p>
@@ -115,12 +131,12 @@ function charResult(charTotal) {
         <div class="card" style="width:400px">
             <div class="supercard" id="blackwidow">
                 <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-                <h4 class="card-title">Black Widow</h4>
+                <h4 class="card-title">${charResults[0].name}</h4>
                 <p class="card-text"> MORE INFO </p>
-                <a href="https://www.marvel.com/comics/characters/1009189/black_widow?utm_campaign=apiRef&utm_source=908be84bdd5d62e47e3efabe9d44b7f5" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+                <a href="${path}.${ext}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-            <div class="supercard" id="venom">
-                <img class="card-img-top cartoon"" src="./Assets/Images/venom.jpg" alt="Venom">
+<!--           <div class="supercard" id="venom">
+                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
                 <h4 class="card-title">Venom</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
@@ -136,7 +152,7 @@ function charResult(charTotal) {
                 <h4 class="card-title">Captain America</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div>
+            </div> -->
         </div>
     </body>
 
