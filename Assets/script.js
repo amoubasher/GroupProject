@@ -2,44 +2,48 @@ var quiz = document.getElementById("quiz");
 var charTotal = 0;
 var currentQuestion = 0;
 
+var cap_ID= 1
+var Dp_ID=2
+var BW_ID=3
+var Venom_ID=4
+
+
 var questions = [
-    {
-        // Change answers -> Venom / Captain America / Deadpool / Black Widow
-        // Move questions to another .js file -> cleans up script.js
-        // 5Q! 4A =20 0-4 CAP 5-9 Deadpool 10-14 Black Widow 15-19 Venom
+  {
+    // Change answers -> Venom / Captain America / Deadpool / Black Widow
+    // Move questions to another .js file -> cleans up script.js
+    // 5Q! 4A =20 0-4 CAP 5-9 Deadpool 10-14 Black Widow 15-19 Venom
     title: "What is your greatest Strength?",
     answers: [
-            { answer: 'Justice', correct: 0 },
-            { answer: 'Everthing DUH!', correct: 1 },
-            { answer: 'Shadows', correct: 2 },
-            { answer: 'We are Venom!', correct: 3 }
-        ]
-    },
-    {
+      { answer: "Justice", correct: 0 },
+      { answer: "Everthing DUH!", correct: 1 },
+      { answer: "Shadows", correct: 2 },
+      { answer: "We are Venom!", correct: 3 },
+    ],
+  },
+  {
     title: "Which is better?",
     answers: [
-        { answer: 'Justice', correct: 0 },
-        { answer: 'Everthing DUH!', correct: 1 },
-        { answer: 'Shadows', correct: 2 },
-        { answer: 'We are Venom!', correct: 3 }
-        ]
-    },
-    {
+      { answer: "Justice", correct: 0 },
+      { answer: "Everthing DUH!", correct: 1 },
+      { answer: "Shadows", correct: 2 },
+      { answer: "We are Venom!", correct: 3 },
+    ],
+  },
+  {
     title: "best best best?",
-        answers: [
-            { answer: 'Justice', correct: 0 },
-            { answer: 'Everthing DUH!', correct: 1 },
-            { answer: 'Shadows', correct: 2 },
-            { answer: 'We are Venom!', correct: 3 }
-            ]
-    }
+    answers: [
+      { answer: "Justice", correct: 0 },
+      { answer: "Everthing DUH!", correct: 1 },
+      { answer: "Shadows", correct: 2 },
+      { answer: "We are Venom!", correct: 3 },
+    ],
+  },
+];
 
-]
-
-// Fix styling with JQuery 
+// Fix styling with JQuery
 function questionPage(question) {
-
-    quiz.innerHTML = /*html*/`
+  quiz.innerHTML = /*html*/ `
     <p>
     ${question.title}
     </p>
@@ -51,48 +55,49 @@ function questionPage(question) {
                 <li><button type="button" class="clickers btn btn-dark btn-lg" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
             </div>
         </ul>
-    `
-    // document
-    // .getElementById("answerOne, answerTwo, answerThree")
-    // .addEventListener(
-    //     'click', 
-    //     function () {
-    //     currentQuestion++
-    //     questionPage(questions[currentQuestion]);
-    // })
+    `;
+  // document
+  // .getElementById("answerOne, answerTwo, answerThree")
+  // .addEventListener(
+  //     'click',
+  //     function () {
+  //     currentQuestion++
+  //     questionPage(questions[currentQuestion]);
+  // })
 
-    // Playing around with a different way to get if answer is correct
-    //     var fort = function isCorrect(torf){
-    //     return torf;
+  // Playing around with a different way to get if answer is correct
+  //     var fort = function isCorrect(torf){
+  //     return torf;
 
-    // }
+  // }
 
-    document
-    .querySelectorAll('.clickers')
-    .forEach(item => (item.addEventListener(
-        'click', 
-        function() {
-            var spitting = $(this).data('correct')
-            console.log(spitting);
-            charTotal= charTotal + spitting;
-            currentQuestion++;
-            if(spitting <= 2){
-                questionPage(questions[currentQuestion])
-            }
-            if(spitting === 3){
-                charResults()
-            }
-        }
-    )
-    )
-    )
+  document.querySelectorAll(".clickers").forEach((item) =>
+    item.addEventListener("click", function () {
+      var spitting = $(this).data("correct");
+      //checking chose value # of answer
+      console.log(spitting);
+      //keeping tabs on chosen asnwer and adding it to total
+      charTotal = charTotal + spitting;
+      currentQuestion++;
+      //checking total
+      console.log(charTotal);
+      //check to make sure there are questions left
+      if (currentQuestion <= 2) {
+        questionPage(questions[currentQuestion]);
+      }
+      //no more questions left go to results
+      if (currentQuestion === 3) {
+        charResult(charTotal);
+      }
+    })
+  );
 }
 
-// Change character results page to fit styling 
+// Change character results page to fit styling
 // Change to also match the four different characters
 
-function charResults() {
-    var choosenChar;
+function charResult(charTotal) {
+  var choosenChar;
 
     
     if (charResults <=4 ){
@@ -151,27 +156,23 @@ function charResults() {
         </div>
     </body>
 
-    `
-        // <input type="text" id="myInput">
-        // <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
+    `;
+  // <input type="text" id="myInput">
+  // <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
 }
 
 // Style the homepage w/JQuery, red / black theme -> Put logo in obvious spot (middle)
 function homepage() {
-    quiz.innerHTML = /*html*/ `
+  quiz.innerHTML = /*html*/ `
     <p>
     My Quiz
     </p>
     <button type="button" class="btn btn-dark btn-lg" id="startQuiz">Start Quiz</button>
-    `
+    `;
 
-    document
-    .getElementById("startQuiz")
-    .addEventListener(
-        'click', 
-        function () {
-        questionPage(questions[currentQuestion]);
-    });
+  document.getElementById("startQuiz").addEventListener("click", function () {
+    questionPage(questions[currentQuestion]);
+  });
 }
 
 homepage();
