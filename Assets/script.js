@@ -2,10 +2,12 @@ var quiz = document.getElementById("quiz");
 var charTotal = 0;
 var currentQuestion = 0;
 
-var cap_ID= 1
-var Dp_ID=2
-var BW_ID=3
-var Venom_ID=4
+var cap_ID= 1009220
+var Dp_ID=1009268
+var BW_ID=1017109
+var Venom_ID=1009663
+
+var charResults={}
 
 
 var questions = [
@@ -32,14 +34,15 @@ var questions = [
   },
   {
     title: "best best best?",
-    answers: [
-      { answer: "Justice", correct: 0 },
-      { answer: "Everthing DUH!", correct: 1 },
-      { answer: "Shadows", correct: 2 },
-      { answer: "We are Venom!", correct: 3 },
-    ],
-  },
-];
+        answers: [
+            { answer: 'Justice', correct: 0 },
+            { answer: 'Everthing DUH!', correct: 1 },
+            { answer: 'Shadows', correct: 2 },
+            { answer: 'We are Venom!', correct: 3 }
+            ]
+    }
+
+]
 
 // Fix styling with JQuery
 function questionPage(question) {
@@ -87,27 +90,54 @@ function questionPage(question) {
       }
       //no more questions left go to results
       if (currentQuestion === 3) {
-        charResult(charTotal);
+        choosenChar(charTotal);
       }
     })
   );
 }
 
+function ts(){
+   return Math.floor(Date.now() / 1000)
+}
+
+function getCharData(QcharID){
+  var Qts = ts();
+
+  return fetch("https://gateway.marvel.com:443/v1/public/characters/" + QcharID + "?apikey=908be84bdd5d62e47e3efabe9d44b7f5" + "&ts=" + Qts)
+.then(response => response.json())
+.then(result => {
+console.log(result.data.results[0]);
+var charResults = result.data.results[0];
+if (charResults != {}){
+  charResultPage(charResults)
+}
+console.log(result)
+})
+//   .then(result => (charName = result.results))
+ .catch(error => console.log('error', error));
+ return charResults
+}
+
 // Change character results page to fit styling
 // Change to also match the four different characters
 
-function charResult(charTotal) {
+function choosenChar(charTotal){
   var choosenChar;
 
+
+  if (charTotal <=4 ){
+    choosenChar = cap_ID;
+}
+if (charTotal > 4 && charTotal <= 9 ){
+    choosenChar = Dp_ID;}
+
+  charResults = getCharData(choosenChar)  
+}
+
+function charResultPage(charResults) {
     
-    if (charResults <=4 ){
-        choosenChar= capID;
-    }
-    if (charResults > 4 && charResults <= 9 ){
-        choosenChar= deadID;
-        
-    }
-    
+    console.log(charResults)
+
     // API call to get chosen character
     // Syntax to use information from API
 
@@ -118,9 +148,16 @@ function charResult(charTotal) {
     // charResults[0].stories.available
     // charResults[0].events.available
 
-    var path = "http://i.annihil.us/u/prod/marvel/i/mg/e/03/5317713c9e746"
-    var ext = "jpg"
 
+    // used for testing varables
+    // var path = "http://i.annihil.us/u/prod/marvel/i/mg/e/03/5317713c9e746"
+    // var ext = "jpg"
+
+    //removed for testing                 <a href="${charResults.thumbnail.path}.${charResults.thumbnail.extension}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+
+
+
+    console.log(charResults.name)
 
     //LANDING PAGE DISPLAY RESULTS
     quiz.innerHTML = /*html*/ `
@@ -129,24 +166,41 @@ function charResult(charTotal) {
     </p>
     <body>
         <div class="card" style="width:400px">
+
+            <img class="card-img-top" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
+            <div>
+                <h4 class="card-title">Black Widow</h4>
+                <p class="card-text"> MORE INFO </p>
+                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+            </div>
+            <div class="supercard" id="venom">
+                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
+        <div class="card" style="width:400px">
             <div class="supercard" id="blackwidow">
                 <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-                <h4 class="card-title">${charResults[0].name}</h4>
+                <h4 class="card-title">${charResults.name}</h4>
+
                 <p class="card-text"> MORE INFO </p>
-                <a href="${path}.${ext}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-<!--           <div class="supercard" id="venom">
-                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
-                <h4 class="card-title">Venom</h4>
-                <p class="card-text"> MORE INFO </p>
-                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div>
-            <div class="supercard" id="deadpool">
-                <img class="card-img-top cartoon" src="./Assets/Images/Deadpool.png" alt="Deadpool">
-                <h4 class="card-title">Deadpool</h4>
+            <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
+            <div>
+            <div class="supercard" id="venom">
+                <img class="card-img-top cartoon"" src="./Assets/Images/venom.jpg" alt="Venom">
+            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
+            <div>
+                <h4 class="card-title">Captain America</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
+        </div>
+    <input type="text" id="myInput">
+    <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
+            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
+            <div>
+            <div class="supercard" id="captain">
+                <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
+            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
+            <div>
             <div class="supercard" id="captain">
                 <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
                 <h4 class="card-title">Captain America</h4>
@@ -154,11 +208,15 @@ function charResult(charTotal) {
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div> -->
         </div>
+    <input type="text" id="myInput">
+    <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
+        </div>
     </body>
 
-    `;
-  // <input type="text" id="myInput">
-  // <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
+    `
+    console.log(charResults)
+        // <input type="text" id="myInput">
+        // <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
 }
 
 // Style the homepage w/JQuery, red / black theme -> Put logo in obvious spot (middle)
@@ -168,7 +226,7 @@ function homepage() {
     My Quiz
     </p>
     <button type="button" class="btn btn-dark btn-lg" id="startQuiz">Start Quiz</button>
-    `;
+    `
 
   document.getElementById("startQuiz").addEventListener("click", function () {
     questionPage(questions[currentQuestion]);
