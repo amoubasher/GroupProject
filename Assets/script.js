@@ -2,10 +2,10 @@ var quiz = document.getElementById("quiz");
 var charTotal = 0;
 var currentQuestion = 0;
 
-var cap_ID= 1
-var Dp_ID=2
-var BW_ID=3
-var Venom_ID=4
+var cap_ID= 1009220
+var Dp_ID=1009268
+var BW_ID=1017109
+var Venom_ID=1009663
 
 
 var questions = [
@@ -88,16 +88,36 @@ function questionPage(question) {
       }
       //no more questions left go to results
       if (currentQuestion === 3) {
-        charResult(charTotal);
+        charResultPage(charTotal);
       }
     })
   );
 }
 
+function ts(){
+   return Math.floor(Date.now() / 1000)
+}
+
+function getCharData(QcharID){
+  var Qts = ts();
+
+  return fetch("https://gateway.marvel.com:443/v1/public/characters/" + QcharID + "?apikey=908be84bdd5d62e47e3efabe9d44b7f5" + "&ts=" + Qts)
+.then(response => response.json())
+.then(result => {
+console.log(result.data.results[0].name);
+var charResults = result.data.results[0].name;
+console.log(result)
+
+return charResults
+})
+//   .then(result => (charName = result.results))
+ .catch(error => console.log('error', error));
+}
+
 // Change character results page to fit styling
 // Change to also match the four different characters
 
-function charResult(charTotal) {
+function charResultPage(charTotal) {
   var choosenChar;
 
     
@@ -108,6 +128,9 @@ function charResult(charTotal) {
         choosenChar= deadID;
         
     }
+
+    
+
     
     // API call to get chosen character
     // Syntax to use information from API
