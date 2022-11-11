@@ -1,5 +1,8 @@
 # ignore Marvel
 api*.js
+
 *marvel.js
+
 */Assests/
+
 api_marvel.js
