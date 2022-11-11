@@ -120,7 +120,7 @@ function charResult(charTotal) {
                 <a href="https://www.marvel.com/comics/characters/1009189/black_widow?utm_campaign=apiRef&utm_source=908be84bdd5d62e47e3efabe9d44b7f5" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
             <div class="supercard" id="venom">
-                <img class="card-img-top cartoon"" src="./Assets/Images/venom.jpg" alt="Venom">
+                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
                 <h4 class="card-title">Venom</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
