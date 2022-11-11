@@ -124,6 +124,7 @@ console.log(result)
 function choosenChar(charTotal){
   var choosenChar;
 
+
   if (charTotal <=4 ){
     choosenChar = cap_ID;
 }
@@ -147,6 +148,7 @@ function charResultPage(charResults) {
     // charResults[0].stories.available
     // charResults[0].events.available
 
+
     // used for testing varables
     // var path = "http://i.annihil.us/u/prod/marvel/i/mg/e/03/5317713c9e746"
     // var ext = "jpg"
@@ -156,6 +158,7 @@ function charResultPage(charResults) {
 
 
     console.log(charResults.name)
+
     //LANDING PAGE DISPLAY RESULTS
     quiz.innerHTML = /*html*/ `
     <p>
@@ -163,6 +166,7 @@ function charResultPage(charResults) {
     </p>
     <body>
         <div class="card" style="width:400px">
+
             <img class="card-img-top" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
             <div>
                 <h4 class="card-title">Black Widow</h4>
@@ -175,6 +179,7 @@ function charResultPage(charResults) {
             <div class="supercard" id="blackwidow">
                 <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
                 <h4 class="card-title">${charResults.name}</h4>
+
                 <p class="card-text"> MORE INFO </p>
             </div>
             <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
@@ -201,7 +206,7 @@ function charResultPage(charResults) {
                 <h4 class="card-title">Captain America</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div>
+            </div> -->
         </div>
     <input type="text" id="myInput">
     <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
