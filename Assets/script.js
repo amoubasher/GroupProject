@@ -144,10 +144,11 @@ function charResult(charTotal) {
         <div class="card" style="width:400px">
             <div class="supercard" id="blackwidow">
                 <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-                <h4 class="card-title">Black Widow</h4>
+                <h4 class="card-title">${charResults[0].name}</h4>
                 <p class="card-text"> MORE INFO </p>
-                <a href="https://www.marvel.com/comics/characters/1009189/black_widow?utm_campaign=apiRef&utm_source=908be84bdd5d62e47e3efabe9d44b7f5" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+                <a href="${path}.${ext}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
             <div>
@@ -156,6 +157,10 @@ function charResult(charTotal) {
             <div class="supercard" id="venom">
                 <img class="card-img-top cartoon"" src="./Assets/Images/venom.jpg" alt="Venom">
 >>>>>>> eecbccb (Fixed some styling issues, worked on cards)
+=======
+<!--           <div class="supercard" id="venom">
+                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
+>>>>>>> a255c01 (did JS changes)
                 <h4 class="card-title">Venom</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
@@ -184,6 +189,7 @@ function charResult(charTotal) {
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div> -->
+<<<<<<< HEAD
         </div>
 =======
     <input type="text" id="myInput">
@@ -201,6 +207,8 @@ function charResult(charTotal) {
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
+=======
+>>>>>>> a255c01 (did JS changes)
         </div>
 >>>>>>> 9990524 (Worked on backgrounds, buttons, cards, styling)
     </body>
