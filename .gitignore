@@ -1,2 +1,2 @@
 # ignore Marvel
-/Assets/api_marvel.js
+api*.js
