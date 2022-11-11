@@ -136,7 +136,7 @@ function charResult(charTotal) {
                 <p class="card-text"> MORE INFO </p>
                 <a href="${path}.${ext}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-<!--           <div class="supercard" id="venom">
+            <div class="supercard" id="venom">
                 <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
                 <h4 class="card-title">Venom</h4>
                 <p class="card-text"> MORE INFO </p>
