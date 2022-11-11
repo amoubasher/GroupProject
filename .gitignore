@@ -1,2 +1,3 @@
 # ignore Marvel
 api*.js
+*marvel.js
