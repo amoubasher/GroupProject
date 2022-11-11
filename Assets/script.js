@@ -7,6 +7,8 @@ var Dp_ID=1009268
 var BW_ID=1017109
 var Venom_ID=1009663
 
+var charResults={}
+
 
 var questions = [
   {
@@ -88,7 +90,7 @@ function questionPage(question) {
       }
       //no more questions left go to results
       if (currentQuestion === 3) {
-        charResultPage(charTotal);
+        choosenChar(charTotal);
       }
     })
   );
@@ -104,34 +106,37 @@ function getCharData(QcharID){
   return fetch("https://gateway.marvel.com:443/v1/public/characters/" + QcharID + "?apikey=908be84bdd5d62e47e3efabe9d44b7f5" + "&ts=" + Qts)
 .then(response => response.json())
 .then(result => {
-console.log(result.data.results[0].name);
-var charResults = result.data.results[0].name;
+console.log(result.data.results[0]);
+var charResults = result.data.results[0];
+if (charResults != {}){
+  charResultPage(charResults)
+}
 console.log(result)
-
-return charResults
 })
 //   .then(result => (charName = result.results))
  .catch(error => console.log('error', error));
+ return charResults
 }
 
 // Change character results page to fit styling
 // Change to also match the four different characters
 
-function charResultPage(charTotal) {
+function choosenChar(charTotal){
   var choosenChar;
 
-    
-    if (charResults <=4 ){
-        choosenChar= capID;
-    }
-    if (charResults > 4 && charResults <= 9 ){
-        choosenChar= deadID;
-        
-    }
+  if (charTotal <=4 ){
+    choosenChar = cap_ID;
+}
+if (charTotal > 4 && charTotal <= 9 ){
+    choosenChar = Dp_ID;}
 
-    
+  charResults = getCharData(choosenChar)  
+}
 
+function charResultPage(charResults) {
     
+    console.log(charResults)
+
     // API call to get chosen character
     // Syntax to use information from API
 
@@ -142,20 +147,21 @@ function charResultPage(charTotal) {
     // charResults[0].stories.available
     // charResults[0].events.available
 
-    var path = "http://i.annihil.us/u/prod/marvel/i/mg/e/03/5317713c9e746"
-    var ext = "jpg"
+    // used for testing varables
+    // var path = "http://i.annihil.us/u/prod/marvel/i/mg/e/03/5317713c9e746"
+    // var ext = "jpg"
+
+    //removed for testing                 <a href="${charResults.thumbnail.path}.${charResults.thumbnail.extension}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
 
 
+
+    console.log(charResults.name)
     //LANDING PAGE DISPLAY RESULTS
     quiz.innerHTML = /*html*/ `
     <p>
         RESULTS
     </p>
     <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         <div class="card" style="width:400px">
             <img class="card-img-top" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
             <div>
@@ -163,154 +169,47 @@ function charResultPage(charTotal) {
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-<<<<<<< HEAD
             <div class="supercard" id="venom">
                 <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
-=======
         <div class="card" style="width:400px">
             <div class="supercard" id="blackwidow">
                 <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-                <h4 class="card-title">${charResults[0].name}</h4>
+                <h4 class="card-title">${charResults.name}</h4>
                 <p class="card-text"> MORE INFO </p>
-                <a href="${path}.${ext}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
             <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
             <div>
->>>>>>> 9990524 (Worked on backgrounds, buttons, cards, styling)
-=======
             <div class="supercard" id="venom">
                 <img class="card-img-top cartoon"" src="./Assets/Images/venom.jpg" alt="Venom">
->>>>>>> eecbccb (Fixed some styling issues, worked on cards)
-=======
-<!--           <div class="supercard" id="venom">
-                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
->>>>>>> a255c01 (did JS changes)
-=======
-        <div class="card" style="width:400px">
-            <div class="supercard" id="blackwidow">
-                <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-                <h4 class="card-title">${charResults[0].name}</h4>
-                <p class="card-text"> MORE INFO </p>
-                <a href="${path}.${ext}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
-            <div>
->>>>>>> e97b3b2 (Worked on backgrounds, buttons, cards, styling)
-=======
-            <div class="supercard" id="venom">
-                <img class="card-img-top cartoon"" src="./Assets/Images/venom.jpg" alt="Venom">
->>>>>>> af31d29 (Fixed some styling issues, worked on cards)
-=======
-<!--           <div class="supercard" id="venom">
-                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
->>>>>>> 385523a (did JS changes)
-=======
-            <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
-            <div>
->>>>>>> 83cf28a (Worked on backgrounds, buttons, cards, styling)
-                <h4 class="card-title">Venom</h4>
-                <p class="card-text"> MORE INFO </p>
-                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <div class="supercard" id="deadpool">
-                <img class="card-img-top cartoon" src="./Assets/Images/Deadpool.png" alt="Deadpool">
-=======
-            <img class="card-img-top" src="./Assets/Images/Deadpool.png" alt="Deadpool">
-            <div>
->>>>>>> 9990524 (Worked on backgrounds, buttons, cards, styling)
-=======
-            <div class="supercard" id="deadpool">
-                <img class="card-img-top cartoon" src="./Assets/Images/Deadpool.png" alt="Deadpool">
->>>>>>> eecbccb (Fixed some styling issues, worked on cards)
-=======
-            <img class="card-img-top" src="./Assets/Images/Deadpool.png" alt="Deadpool">
-            <div>
->>>>>>> e97b3b2 (Worked on backgrounds, buttons, cards, styling)
-=======
-            <div class="supercard" id="deadpool">
-                <img class="card-img-top cartoon" src="./Assets/Images/Deadpool.png" alt="Deadpool">
->>>>>>> af31d29 (Fixed some styling issues, worked on cards)
-=======
-            <img class="card-img-top" src="./Assets/Images/Deadpool.png" alt="Deadpool">
-            <div>
->>>>>>> 83cf28a (Worked on backgrounds, buttons, cards, styling)
-                <h4 class="card-title">Deadpool</h4>
-                <p class="card-text"> MORE INFO </p>
-                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <div class="supercard" id="captain">
-                <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
-                <h4 class="card-title">Captain America</h4>
-                <p class="card-text"> MORE INFO </p>
-                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div> -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 385523a (did JS changes)
-=======
             <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
             <div>
                 <h4 class="card-title">Captain America</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
->>>>>>> 83cf28a (Worked on backgrounds, buttons, cards, styling)
         </div>
-=======
     <input type="text" id="myInput">
     <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
-
->>>>>>> 622521a (Added more styling)
-=======
             <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
             <div>
-=======
             <div class="supercard" id="captain">
                 <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
->>>>>>> eecbccb (Fixed some styling issues, worked on cards)
-=======
             <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
             <div>
->>>>>>> e97b3b2 (Worked on backgrounds, buttons, cards, styling)
-=======
             <div class="supercard" id="captain">
                 <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
->>>>>>> af31d29 (Fixed some styling issues, worked on cards)
                 <h4 class="card-title">Captain America</h4>
                 <p class="card-text"> MORE INFO </p>
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div>
-<<<<<<< HEAD
-=======
->>>>>>> a255c01 (did JS changes)
         </div>
->>>>>>> 9990524 (Worked on backgrounds, buttons, cards, styling)
-=======
     <input type="text" id="myInput">
     <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
-
->>>>>>> 9efcbce (Added more styling)
-=======
         </div>
->>>>>>> e97b3b2 (Worked on backgrounds, buttons, cards, styling)
     </body>
 
     `
+    console.log(charResults)
         // <input type="text" id="myInput">
         // <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
 }
