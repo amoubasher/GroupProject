@@ -12,44 +12,80 @@ var charResults={}
 
 var questions = [
   {
-    // Change answers -> Venom / Captain America / Deadpool / Black Widow
-    // Move questions to another .js file -> cleans up script.js
-    // 5Q! 4A =20 0-4 CAP 5-9 Deadpool 10-14 Black Widow 15-19 Venom
-    title: "What is your greatest Strength?",
+    // Change answers -> Venom / Captain America / Deadpool / Black Widow 
+    // Move questions to another .js file -> cleans up script.js 
+    // 5Q! 4A =20 0-4 CAP 5-9 Deadpool 10-14 Black Widow 15-19 Venom 
+    // Expand to five questions - Keith 
+    title: "If you had one of these powers, which would it be?",
     answers: [
-      { answer: "Justice", correct: 0 },
+      { answer: "Strength and Morality", correct: 0 },
       { answer: "Everthing DUH!", correct: 1 },
-      { answer: "Shadows", correct: 2 },
-      { answer: "We are Venom!", correct: 3 },
+      { answer: "Decades of training (without actually training)", correct: 2 },
+      { answer: "Being part Alien", correct: 3 },
+    ],
+  },
+  { 
+    title: "You have beaten a villain, what will you do now?", 
+    answers: [ 
+        { answer: "Take them to jail.", correct: 0}, 
+        { answer: "Slap them until they blackout and do it again", correct: 1}, 
+        { answer: "Let them go, they can't hide from you", correct: 2}, 
+        { answer: "Eat Them!", correct: 3}, 
     ],
   },
   {
-    title: "Which is better?",
+    title: "What is your personality type?",
     answers: [
-      { answer: "Justice", correct: 0 },
-      { answer: "Everthing DUH!", correct: 1 },
-      { answer: "Shadows", correct: 2 },
-      { answer: "We are Venom!", correct: 3 },
+      { answer: "Patriotic", correct: 0 },
+      { answer: "Jokester", correct: 1 },
+      { answer: "Lone-Wolf", correct: 2 },
+      { answer: "Bold", correct: 3 },
     ],
   },
   {
-    title: "best best best?",
-        answers: [
-            { answer: 'Justice', correct: 0 },
-            { answer: 'Everthing DUH!', correct: 1 },
-            { answer: 'Shadows', correct: 2 },
-            { answer: 'We are Venom!', correct: 3 }
-            ]
-    }
-
-]
+    title: "You know where a villain is hiding, what do you do?",
+    answers: [
+      { answer: "Rally everyone, then take them down", correct: 0 },
+      { answer: "Knock on their door", correct: 1 },
+      { answer: "They're already taken care of", correct: 2 },
+      { answer: "Eat them before they can run", correct: 3 },
+    ],
+  },
+  { 
+    title: "The key to world peace is: ", 
+    answers: [ 
+        { answer: "Fighting for what's right", correct: 0}, 
+        { answer: "Chimichangas and Bullets", correct: 1}, 
+        { answer: "Fighting from the shadows", correct: 2}, 
+        { answer: "Killing the bad guys", correct: 3}, 
+    ],
+  },
+  { 
+    title: "Someone hurt you a long time ago, you've just met them, what do you do?", 
+    answers: [ 
+        { answer: "Be the better person, leave them alone", correct: 0}, 
+        { answer: "Scar them", correct: 1}, 
+        { answer: "Threaten them, and remind them who you are now", correct: 2}, 
+        { answer: "Beat them up", correct: 3}, 
+    ],
+  },
+  { 
+    title: "You've been caught for a crime, what do you do?", 
+    answers: [ 
+        { answer: "Turn myself in, it's only right", correct: 0}, 
+        { answer: "Frame someone I hate", correct: 1}, 
+        { answer: "I'm already gone from the scene", correct: 2}, 
+        { answer: "Get away from there ASAP!", correct: 3}, 
+    ],
+  },
+];
 
 // Fix styling with JQuery
 function questionPage(question) {
   quiz.innerHTML = /*html*/ `
     <p>
-    ${question.title}
-    </p>
+        ${question.title};
+    </p> 
         <ul>
             <div class="d-grid gap-2 d-md-block">
                 <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
@@ -85,7 +121,7 @@ function questionPage(question) {
       //checking total
       console.log(charTotal);
       //check to make sure there are questions left
-      if (currentQuestion <= 2) {
+      if (currentQuestion <= 7) {
         questionPage(questions[currentQuestion]);
       }
       //no more questions left go to results
@@ -120,24 +156,27 @@ console.log(result)
 
 // Change character results page to fit styling
 // Change to also match the four different characters
+// Make sure that the results from the questions are correctly added up together 
+    // 5Q! 4A =20 0-4 CAP 5-9 Deadpool 10-14 Black Widow 15-19 Venom 
 
 function choosenChar(charTotal){
   var choosenChar;
 
+// Make the answers / results more dynamic  
+    if (charResults <= 4 ){
+        choosenChar= capID;
+    }
+    if (charResults > 4 && charResults <= 7 ){
+        choosenChar= deadID;
+    } 
+    if (charResults > 7 && charResults <= 14) { 
+        choosenChar = BlackWidowID;
+    }
+    if (charResults > 14 && charResults <=21 ) { 
+        choosenChar = VenomID
+    }
 
-  if (charTotal <=4 ){
-    choosenChar = cap_ID;
-}
-if (charTotal > 4 && charTotal <= 9 ){
-    choosenChar = Dp_ID;}
-
-  charResults = getCharData(choosenChar)  
-}
-
-function charResultPage(charResults) {
     
-    console.log(charResults)
-
     // API call to get chosen character
     // Syntax to use information from API
 
