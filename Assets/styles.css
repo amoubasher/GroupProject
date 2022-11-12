@@ -1,11 +1,23 @@
+*{
+    color: red;
+}
+
 .background {
-    background-image: url(./Images/marvelBackground.png);
-    background-size: auto;
+    background-image: url(./Images/marvelLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left;
+    background-color: black;
 }
 
 p {
     font-weight: bolder;
     font-size: 100px;
+}
+
+.description {
+    font-size: 20px;
 }
 
 li {
@@ -26,4 +38,15 @@ button {
     border: 5px;
     border-style: solid;
     margin: 10px;
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    background-color: lightgrey;
+}
+
+.btn {
+    background-color: red;
 }

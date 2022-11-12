@@ -52,10 +52,10 @@ function questionPage(question) {
     </p>
         <ul>
             <div class="d-grid gap-2 d-md-block">
-                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark btn-lg" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
             </div>
         </ul>
     `;
@@ -159,21 +159,27 @@ function charResultPage(charResults) {
 
     console.log(charResults.name)
 
+    if (charResults.description === "") {
+      // document.getElementById("description").innerText = "Click the Button Below To Learn More About This Character!";
+      charResults.description = "Click the Button Below To Learn More About This Character!";
+    }
+
+
     //LANDING PAGE DISPLAY RESULTS
     quiz.innerHTML = /*html*/ `
     <p>
-        RESULTS
+        You're most like ${charResults.name}
     </p>
     <body>
-        <div class="card" style="width:400px">
+        <div class="card text-center" style="width:400px">
 
-            <img class="card-img-top" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
+            <img class="card-img-top" src="${charResults.thumbnail.path}.${charResults.thumbnail.extension}" alt="Super Hero's Image">
             <div>
-                <h4 class="card-title">Black Widow</h4>
-                <p class="card-text"> MORE INFO </p>
-                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
+                <h4 class="card-title">${charResults.name}</h4>
+                <p class="description card-text">${charResults.description}</p>
+                <a href="${charResults.urls[0].url}" target="_blank" class="btn btn-danger btn-lg"> COMICS/LINKS </a>
             </div>
-            <div class="supercard" id="venom">
+<!---           <div class="supercard" id="venom">
                 <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
         <div class="card" style="width:400px">
             <div class="supercard" id="blackwidow">
@@ -185,7 +191,7 @@ function charResultPage(charResults) {
             <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
             <div>
             <div class="supercard" id="venom">
-                <img class="card-img-top cartoon"" src="./Assets/Images/venom.jpg" alt="Venom">
+                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
             <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
             <div>
                 <h4 class="card-title">Captain America</h4>
@@ -208,9 +214,9 @@ function charResultPage(charResults) {
                 <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
             </div> -->
         </div>
-    <input type="text" id="myInput">
+<!--    <input type="text" id="myInput">
     <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
-        </div>
+        </div> -->
     </body>
 
     `
@@ -222,10 +228,10 @@ function charResultPage(charResults) {
 // Style the homepage w/JQuery, red / black theme -> Put logo in obvious spot (middle)
 function homepage() {
   quiz.innerHTML = /*html*/ `
-    <p>
+    <p class="mt-5">
     My Quiz
     </p>
-    <button type="button" class="btn btn-dark btn-lg" id="startQuiz">Start Quiz</button>
+    <button type="button" class="btn btn-danger btn-lg" id="startQuiz">Start Quiz</button>
     `
 
   document.getElementById("startQuiz").addEventListener("click", function () {
