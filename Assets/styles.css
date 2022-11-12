@@ -1,20 +1,20 @@
 .background {
-  background-image: url(./Images/marvelBackground.png);
-  background-size: auto;
+    background-image: url(./Images/marvelBackground.png);
+    background-size: auto;
 }
 
 p {
-  font-weight: bolder;
-  font-size: 100px;
+    font-weight: bolder;
+    font-size: 100px;
 }
 
 li {
-  font-size: 28px;
-  list-style: none;
+    font-size: 28px;
+    list-style: none;
 }
 
 button {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 .cartoon {
@@ -23,11 +23,7 @@ button {
 }
 
 .supercard {
-  border: 5px;
-  border-style: solid;
-  margin: 10px;
-}
-
-.venom{
-  background-color: black;
+    border: 5px;
+    border-style: solid;
+    margin: 10px;
 }
