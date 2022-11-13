@@ -3,11 +3,11 @@ var charTotal = 0;
 var currentQuestion = 0;
 
 var cap_ID= 1009220
-var Dp_ID=1009268
-var BW_ID=1017109
-var Venom_ID=1009663
+var dp_ID=1009268
+var bw_ID=1017109
+var venom_ID=1009663
 
-var charResults={}
+var charResults = {}
 
 
 var questions = [
@@ -127,6 +127,7 @@ function questionPage(question) {
       //no more questions left go to results
       if (currentQuestion === 7) {
         choosenChar(charTotal);
+
       }
     })
   );
@@ -139,13 +140,13 @@ function ts(){
 function getCharData(QcharID){
   var Qts = ts();
 
-  return fetch("https://gateway.marvel.com:443/v1/public/characters/" + QcharID + "?apikey=908be84bdd5d62e47e3efabe9d44b7f5" + "&ts=" + Qts)
+return fetch("https://gateway.marvel.com:443/v1/public/characters/" + QcharID + "?apikey=908be84bdd5d62e47e3efabe9d44b7f5" + "&ts=" + Qts)
 .then(response => response.json())
 .then(result => {
 console.log(result.data.results[0]);
 var charResults = result.data.results[0];
 if (charResults != {}){
-  choosenChar(charTotal)
+  charResultsPage(charResults)
 }
 console.log(result)
 })
@@ -159,24 +160,27 @@ console.log(result)
 // Make sure that the results from the questions are correctly added up together 
     // 5Q! 4A =20 0-4 CAP 5-9 Deadpool 10-14 Black Widow 15-19 Venom 
 
-function choosenChar(charTotal){
-  var choosenChar;
-
+function choosenChar(t){
+var choosenChar
 // Make the answers / results more dynamic  
-    if (charResults <= 4 ){
-        choosenChar= cap_ID;
+    if (t <= 4 ){
+        choosenChar = cap_ID;
     }
-    if (charResults > 4 && charResults <= 7 ){
-        choosenChar= Dp_ID;
+    if (t > 4 && t <= 7){
+        choosenChar = dp_ID;
     } 
-    if (charResults > 7 && charResults <= 14) { 
-        choosenChar = BW_ID;
+    if (t > 7 && t <= 14) { 
+        choosenChar = bw_ID;
     }
-    if (charResults > 14 && charResults <=21 ) { 
-        choosenChar = Venom_ID
+    if (t > 14 && t <=21 ) { 
+        choosenChar = venom_ID
     }
+    getCharData(choosenChar);
 
-    
+  }
+
+    function charResultsPage(charResults){
+
     // API call to get chosen character
     // Syntax to use information from API
 
