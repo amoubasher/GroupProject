@@ -83,15 +83,15 @@ var questions = [
 // Fix styling with JQuery
 function questionPage(question) {
   quiz.innerHTML = /*html*/ `
-    <p>
-        ${question.title};
+    <p class="q-title">
+        ${question.title}
     </p> 
         <ul>
             <div class="d-grid gap-2 d-md-block">
                 <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
                 <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
                 <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
-                <li><button type="button" class="clickers btn btn-danger btn-lg" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
             </div>
         </ul>
     `;
@@ -121,11 +121,11 @@ function questionPage(question) {
       //checking total
       console.log(charTotal);
       //check to make sure there are questions left
-      if (currentQuestion <= 7) {
+      if (currentQuestion <= 6) {
         questionPage(questions[currentQuestion]);
       }
       //no more questions left go to results
-      if (currentQuestion === 3) {
+      if (currentQuestion === 7) {
         choosenChar(charTotal);
       }
     })
@@ -145,7 +145,7 @@ function getCharData(QcharID){
 console.log(result.data.results[0]);
 var charResults = result.data.results[0];
 if (charResults != {}){
-  charResultPage(charResults)
+  choosenChar(charTotal)
 }
 console.log(result)
 })
@@ -164,16 +164,16 @@ function choosenChar(charTotal){
 
 // Make the answers / results more dynamic  
     if (charResults <= 4 ){
-        choosenChar= capID;
+        choosenChar= cap_ID;
     }
     if (charResults > 4 && charResults <= 7 ){
-        choosenChar= deadID;
+        choosenChar= Dp_ID;
     } 
     if (charResults > 7 && charResults <= 14) { 
-        choosenChar = BlackWidowID;
+        choosenChar = BW_ID;
     }
     if (charResults > 14 && charResults <=21 ) { 
-        choosenChar = VenomID
+        choosenChar = Venom_ID
     }
 
     
@@ -207,7 +207,7 @@ function choosenChar(charTotal){
     //LANDING PAGE DISPLAY RESULTS
     quiz.innerHTML = /*html*/ `
     <p>
-        You're most like ${charResults.name}
+        You are ${charResults.name}
     </p>
     <body>
         <div class="card text-center" style="width:400px">
@@ -218,44 +218,7 @@ function choosenChar(charTotal){
                 <p class="description card-text">${charResults.description}</p>
                 <a href="${charResults.urls[0].url}" target="_blank" class="btn btn-danger btn-lg"> COMICS/LINKS </a>
             </div>
-<!---           <div class="supercard" id="venom">
-                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
-        <div class="card" style="width:400px">
-            <div class="supercard" id="blackwidow">
-                <img class="card-img-top cartoon" src="./Assets/Images/blackwidow.jpg" alt="Black Widow">
-                <h4 class="card-title">${charResults.name}</h4>
-
-                <p class="card-text"> MORE INFO </p>
-            </div>
-            <img class="card-img-top" src="./Assets/Images/venom.jpg" alt="Venom">
-            <div>
-            <div class="supercard" id="venom">
-                <img class="card-img-top cartoon" src="./Assets/Images/venom.jpg" alt="Venom">
-            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
-            <div>
-                <h4 class="card-title">Captain America</h4>
-                <p class="card-text"> MORE INFO </p>
-                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div>
         </div>
-    <input type="text" id="myInput">
-    <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
-            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
-            <div>
-            <div class="supercard" id="captain">
-                <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
-            <img class="card-img-top" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
-            <div>
-            <div class="supercard" id="captain">
-                <img class="card-img-top cartoon" src="./Assets/Images/captainAmerica.jpg" alt="Captain America">
-                <h4 class="card-title">Captain America</h4>
-                <p class="card-text"> MORE INFO </p>
-                <a href="#" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-            </div> -->
-        </div>
-<!--    <input type="text" id="myInput">
-    <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
-        </div> -->
     </body>
 
     `
@@ -267,8 +230,8 @@ function choosenChar(charTotal){
 // Style the homepage w/JQuery, red / black theme -> Put logo in obvious spot (middle)
 function homepage() {
   quiz.innerHTML = /*html*/ `
-    <p class="mt-5">
-    My Quiz
+    <p class="mt-5 main-page">
+    Which Marvel Hero Are You? Take This Quiz!
     </p>
     <button type="button" class="btn btn-danger btn-lg" id="startQuiz">Start Quiz</button>
     `
