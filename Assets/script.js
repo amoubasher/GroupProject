@@ -180,6 +180,7 @@ var choosenChar
   }
 
     function charResultsPage(charResults){
+
     // API call to get chosen character
     // Syntax to use information from API
 
