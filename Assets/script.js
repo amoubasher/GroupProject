@@ -83,15 +83,15 @@ var questions = [
 // Fix styling with JQuery
 function questionPage(question) {
   quiz.innerHTML = /*html*/ `
-    <p>
-        ${question.title};
+    <p class="q-title">
+        ${question.title}
     </p> 
         <ul>
             <div class="d-grid gap-2 d-md-block">
-                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
-                <li><button type="button" class="clickers btn btn-dark btn-lg mb-3" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
+                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
             </div>
         </ul>
     `;
@@ -121,7 +121,7 @@ function questionPage(question) {
       //checking total
       console.log(charTotal);
       //check to make sure there are questions left
-      if (currentQuestion <= 7) {
+      if (currentQuestion <= 6) {
         questionPage(questions[currentQuestion]);
       }
       //no more questions left go to results
