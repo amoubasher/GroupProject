@@ -87,11 +87,11 @@ function questionPage(question) {
         ${question.title}
     </p> 
         <ul>
-            <div class="d-grid gap-2 d-md-block">
-                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
-                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
-                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
-                <li><button type="button" class="clickers btn btn-danger btn-lg mb-3" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
+            <div class="d-grid gap-2 d-md-block" id="navigation">
+                <li><button type="button" class="clickers btn-lg mb-3" id="answerOne" data-correct="${question.answers[0].correct}">${question.answers[0].answer}</button>
+                <li><button type="button" class="clickers btn-lg mb-3" id="answerTwo" data-correct="${question.answers[1].correct}">${question.answers[1].answer}</button>
+                <li><button type="button" class="clickers btn-lg mb-3" id="answerThree" data-correct="${question.answers[2].correct}">${question.answers[2].answer}</button>
+                <li><button type="button" class="clickers btn-lg mb-3" id="answerFour" data-correct="${question.answers[3].correct}">${question.answers[3].answer}</button>
             </div>
         </ul>
     `;
@@ -211,22 +211,22 @@ var choosenChar
     //LANDING PAGE DISPLAY RESULTS
     quiz.innerHTML = /*html*/ `
     <p>
-        You are ${charResults.name}
+    You are ${charResults.name}
     </p>
-    <button type="button" class="clickers btn btn-danger btn-lg mb-3" id="reset">Reset Quiz</button>
     <body>
-        <div class="card text-center" style="width:400px">
-
-            <img class="card-img-top" src="${charResults.thumbnail.path}.${charResults.thumbnail.extension}" alt="Super Hero's Image">
-            <div>
-                <h4 class="card-title">${charResults.name}</h4>
-                <p class="description card-text">${charResults.description}</p>
-                <a href="${charResults.urls[0].url}" target="_blank" class="btn btn-danger btn-lg"> COMICS/LINKS </a>
-            </div>
-
-        </div>
+    <div class="card text-center" style="width:400px">
+    
+    <img class="card-img-top" src="${charResults.thumbnail.path}.${charResults.thumbnail.extension}" alt="Super Hero's Image">
+    <div>
+    <h4 class="card-title">${charResults.name}</h4>
+    <p class="description card-text">${charResults.description}</p>
+    <a href="${charResults.urls[0].url}" target="_blank" class="btn-lg"> COMICS/LINKS </a>
+    </div>
+    
+    </div>
+    <button type="button" class="clickers btn-lg mb-3" id="reset">Reset Quiz</button>
     </body>
-
+    
     `
     document.querySelectorAll(".clickers").forEach((item) =>
     item.addEventListener("click", function () {
@@ -247,7 +247,7 @@ function homepage() {
     <p class="mt-5 main-page">
     Which Marvel Hero Are You? Take This Quiz!
     </p>
-    <button type="button" class="btn btn-danger btn-lg" id="startQuiz">Start Quiz</button>
+    <button type="button" class="btn-lg" id="startQuiz">Start Quiz</button>
     `
 
   document.getElementById("startQuiz").addEventListener("click", function () {
