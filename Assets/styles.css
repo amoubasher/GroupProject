@@ -39,6 +39,8 @@ li {
 
 button {
     font-size: 24px;
+    background-color: red;
+    color: white;
 }
 
 .cartoon {
@@ -73,5 +75,12 @@ button, #startQuiz {
 
 
 #reset {
-    margin-right: 1280px;
+    margin: auto;
+    margin-top: 10px;
 }
+
+button, #navigation {
+    width: 500px;
+    padding: auto;
+    margin: auto;
+    }
