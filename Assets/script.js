@@ -214,13 +214,13 @@ var choosenChar
     You are ${charResults.name}
     </p>
     <body>
-    <div class="card text-center" style="width:400px">
+    <div class="card text-center" >
     
     <img class="card-img-top" src="${charResults.thumbnail.path}.${charResults.thumbnail.extension}" alt="Super Hero's Image">
     <div>
     <h4 class="card-title">${charResults.name}</h4>
     <p class="description card-text">${charResults.description}</p>
-    <a href="${charResults.urls[0].url}" target="_blank" class="btn-lg"> COMICS/LINKS </a>
+    <button type="button" class="btn-lg links"><a href="${charResults.urls[0].url}" target="_blank" class="btn-lg"> COMICS/LINKS </a></button>
     </div>
     
     </div>
