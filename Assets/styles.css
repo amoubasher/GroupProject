@@ -70,3 +70,8 @@ button {
 button, #startQuiz {
     font-size: 50px;
 }
+
+
+#reset {
+    margin-right: 1280px;
+}

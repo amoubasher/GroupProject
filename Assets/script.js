@@ -213,6 +213,7 @@ var choosenChar
     <p>
         You are ${charResults.name}
     </p>
+    <button type="button" class="clickers btn btn-danger btn-lg mb-3" id="reset">Reset Quiz</button>
     <body>
         <div class="card text-center" style="width:400px">
 
@@ -222,11 +223,20 @@ var choosenChar
                 <p class="description card-text">${charResults.description}</p>
                 <a href="${charResults.urls[0].url}" target="_blank" class="btn btn-danger btn-lg"> COMICS/LINKS </a>
             </div>
+
         </div>
     </body>
 
     `
-    console.log(charResults)
+    document.querySelectorAll(".clickers").forEach((item) =>
+    item.addEventListener("click", function () {
+      charTotal = 0;
+      currentQuestion = 0;
+      questionPage(questions[currentQuestion]);
+    })
+    )
+
+    // console.log(charResults)
         // <input type="text" id="myInput">
         // <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
 }
