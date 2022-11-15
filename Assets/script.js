@@ -1,3 +1,4 @@
+// Declare Variables that will be used for characters, questions, & innerHTML's
 var quiz = document.getElementById("quiz");
 var charTotal = 0;
 var currentQuestion = 0;
@@ -81,6 +82,7 @@ var questions = [
 ];
 
 // Fix styling with JQuery
+// List the buttons that will have answers
 function questionPage(question) {
   quiz.innerHTML = /*html*/ `
     <p class="q-title">
@@ -95,20 +97,8 @@ function questionPage(question) {
             </div>
         </ul>
     `;
-  // document
-  // .getElementById("answerOne, answerTwo, answerThree")
-  // .addEventListener(
-  //     'click',
-  //     function () {
-  //     currentQuestion++
-  //     questionPage(questions[currentQuestion]);
-  // })
 
-  // Playing around with a different way to get if answer is correct
-  //     var fort = function isCorrect(torf){
-  //     return torf;
-
-  // }
+// Add logic for when the user clicks on an answer, and to tally up answers for the results
 
   document.querySelectorAll(".clickers").forEach((item) =>
     item.addEventListener("click", function () {
@@ -132,6 +122,8 @@ function questionPage(question) {
     })
   );
 }
+
+// Start API call for character ID's and other data
 
 function ts(){
    return Math.floor(Date.now() / 1000)
@@ -184,22 +176,6 @@ var choosenChar
     // API call to get chosen character
     // Syntax to use information from API
 
-    // charResults[0].name
-    // charResults[0].thumbnail.path
-    // charResults[0].comics.available
-    // charResults[0].series.available
-    // charResults[0].stories.available
-    // charResults[0].events.available
-
-
-    // used for testing varables
-    // var path = "http://i.annihil.us/u/prod/marvel/i/mg/e/03/5317713c9e746"
-    // var ext = "jpg"
-
-    //removed for testing                 <a href="${charResults.thumbnail.path}.${charResults.thumbnail.extension}" target="_blank" class="btn btn-dark btn-lg"> COMICS/LINKS </a>
-
-
-
     console.log(charResults.name)
 
     if (charResults.description === "") {
@@ -209,6 +185,7 @@ var choosenChar
 
 
     //LANDING PAGE DISPLAY RESULTS
+    // Make Cards dynamic so the official data is published, or if the API changes the character's data so that the card will always have up-to-date info
     quiz.innerHTML = /*html*/ `
     <p>
     You are ${charResults.name}
@@ -235,13 +212,10 @@ var choosenChar
       questionPage(questions[currentQuestion]);
     })
     )
-
-    // console.log(charResults)
-        // <input type="text" id="myInput">
-        // <button type="button" class="btn btn-dark btn-lg" id="myBtn"> Show Value</button>
 }
 
 // Style the homepage w/JQuery, red / black theme -> Put logo in obvious spot (middle)
+// First page of Quiz
 function homepage() {
   quiz.innerHTML = /*html*/ `
     <p class="mt-5 main-page">
